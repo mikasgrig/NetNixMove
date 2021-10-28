@@ -1,0 +1,22 @@
+@model MacawSitecoreProject.Models.Director
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Details" asp-route-directorId="@Model.Id" asp-route-Id="@Model.MoveId">Back to Details</a>
+</div>

@@ -1,0 +1,51 @@
+@model MacawSitecoreProject.Models.FullMoveDetailModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+
+<div>
+    <img src="@Url.Content(Model.Image)" alt="Move.com">
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+         <dt class = "col-sm-2">
+             @Html.DisplayNameFor(model => model.Description)
+         </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Like)
+        </dt>
+        <dd class="col-sm-10">
+            <div>@Html.DisplayFor(model => model.Like)</div>
+            <form asp-action="AddLike" asp-route-directorId="@Model.Director.Id" asp-route-id="@Model.Id">
+                <input type="hidden" asp-for="@Model.Id)"/>
+                <input type="submit" value="Like" class="btn btn-primary"/>
+            </form>
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Director)
+        </dt>
+        <dd class="col-sm-10">
+            <a asp-action="DetailsDirector" asp-route-directorId="@Model.Director.Id" asp-route-moveID="@Model.Id">@Model.Director.Name</a>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

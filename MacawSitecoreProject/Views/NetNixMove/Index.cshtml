@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MacawSitecoreProject.Models.NetNixMoveModel>
+@{
+    
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Coming Soon</h1>
+</div>
+
+    <div class="row g-2">
+    @foreach (var item in Model)
+    {
+        <div class="col-3 p-3">
+            <div class="card p-3">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <p class="card-text">@Html.DisplayNameFor(model => model.ReleaseDate) @Html.DisplayFor(modelItem => item.ReleaseDate)</p>
+                    <a asp-action="Details" asp-route-id="@item.Id" asp-route-directorId="@item.Director.Id">Details</a>
+                </div>
+            </div>
+        </div>
+    }
+     </div>
+
+
